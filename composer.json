@@ -1,5 +1,5 @@
 {
-    "name": "exussum12/xxhash",
+    "name": "revizto/xxhash",
     "description": "xxHash implementation in Pure PHP",
     "type": "library",
     "require": {
