@@ -24,12 +24,17 @@ abstract class Base implements Hash
 
     public function hash(string $input): string
     {
+        return dechex($this->hashDec($input));
+    }
+
+    public function hashDec(string $input): string
+    {
         if (!isset($this)) {
             $hash = new static();
-            return $hash->hash($input);
+            return $hash->hashDec($input);
         }
 
-        return dechex($this->ffi->{$this->hash}($input, strlen($input), $this->seed));
+        return $this->ffi->{$this->hash}($input, strlen($input), $this->seed);
     }
 
     public function hashStream($input): string
